@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
+import TodoListItem from "../views/TodoListItem.vue";
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,18 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/slot",
+    name: "TodoListItem",
+    component: () =>
+      import(/* webpackChunkName: "slot" */ "../views/TodoListItem.vue")
+  },
+  {
+    path: "/github",
+    name: "GitHub",
+    component: () =>
+      import(/* webpackChunkName: "github" */ "../views/ProjectGitHubProfile.vue")
   },
   {
     path: "/about",

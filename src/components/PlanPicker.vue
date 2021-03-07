@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script type="ts">
+<script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 // import Plan from "@/components/Plan.vue";
 import PlanPickerItem from "@/components/PlanPickerItem.vue";
@@ -22,14 +22,14 @@ import PlanPickerItem from "@/components/PlanPickerItem.vue";
   components: {
     // plan: Plan,
     // 'plan-item': Plan,
-    'plan-picker-item': PlanPickerItem,
+    "plan-picker-item": PlanPickerItem,
   },
 })
 export default class PlanPicker extends Vue {
   plans = ["The Hacker", "The Single", "The Curious", "The Addict"];
-  selectedPlan = null;
+  selectedPlan = "";
 
-  selectPlan(plan) {
+  selectPlan(plan: string) {
     this.selectedPlan = plan;
   }
 }

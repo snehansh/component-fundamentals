@@ -6,12 +6,12 @@
   </div>
 </template>
 
-<script type="ts">
+<script lang="ts">
 import { Component, Prop, Vue, Emit } from "vue-property-decorator";
 @Component
 export default class PlanPickerItem extends Vue {
-  @Prop() name; // unable to annotate
-  @Prop() selectedPlan;
+  @Prop() name!: string;
+  @Prop() selectedPlan!: string;
   // selected = false;
 
   // @Emit('hi-there')

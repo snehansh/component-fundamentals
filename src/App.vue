@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/slot">Slot</router-link> |
       <router-link to="/github">GitHub Profile</router-link> |
+      <router-link to="/notification">Notification Center</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

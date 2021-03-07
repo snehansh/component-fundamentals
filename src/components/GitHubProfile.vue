@@ -1,7 +1,6 @@
 <template>
   <div>
     <b-card
-      :title="user.name"
       :img-src="user.avatar_url"
       img-alt="Image"
       img-top
@@ -9,25 +8,34 @@
       style="max-width: 20rem"
       class="mb-2"
     >
-      <b-card-text>
-        Joined in {{ user.created_at }} <br />
-        {{ user.bio }}
-      </b-card-text>
+      <b-card-body>
+        <b-card-title
+          ><a :href="`https://github.com/${name}`" target="_blank">
+            {{ user.name }}</a
+          ></b-card-title
+        >
+        <b-card-text>
+          Joined in {{ user.created_at }} <br />
+          {{ user.bio }}
+        </b-card-text>
+      </b-card-body>
 
       <b-card-footer
-        ><i class="fas fa-user"></i
-        ><span class="ml-1">{{ user.followers }} Friends</span></b-card-footer
+        ><a :href="`https://github.com/${name}?tab=followers`" target="_blank"
+          ><i class="fas fa-user"></i
+          ><span class="ml-1">{{ user.followers }} Friends</span></a
+        ></b-card-footer
       >
     </b-card>
   </div>
 </template>
 
-<script type="ts">
+<script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import axios from "axios";
 @Component
 export default class GitHubProfile extends Vue {
-  @Prop() name;
+  @Prop() name!: string;
   user = "";
   created() {
     this.loadData();

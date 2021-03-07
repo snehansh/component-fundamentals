@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
-import TodoListItem from "../views/TodoListItem.vue";
 
 Vue.use(VueRouter);
 
@@ -22,6 +21,12 @@ const routes: Array<RouteConfig> = [
     name: "GitHub",
     component: () =>
       import(/* webpackChunkName: "github" */ "../views/ProjectGitHubProfile.vue")
+  },
+  {
+    path: "/notification",
+    name: "Notification",
+    component: () =>
+      import(/* webpackChunkName: "notification" */ "../views/NotificationCenter.vue")
   },
   {
     path: "/about",
